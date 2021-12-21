@@ -1,0 +1,46 @@
+problem:eetcode.com/problems/number-of-smooth-descent-periods-of-a-stock/
+explaination:
+
+
+/*
+
+->BRUTE FORCE(GETTING TLE)
+WHAT WE WILL DO HERE IS THAT WE WILL CHECK FOR EVERY WINDOW THAT WHEATHER IT A Smooth Descent Periods of a Stock OR NOT...IF IT IS THEN WILL INCREASE OUR COUNT AND SIMPLY RETURN COUNT
+
+*/
+
+class Solution {
+public:
+    /*FUNCTION TO CHECK WHEATHER THE GIVE WINDOW IS Smooth Descent Periods of a Stock OR NOT
+    here si represents start of window and ei represents end of window*/
+    bool check(vector<int>& prices,int si,int ei){
+        for(int i=si;i<ei;i++){
+            if((prices[i]-prices[i+1])!=1){
+                return false;
+            }
+        }
+        return true;
+    }
+    long long getDescentPeriods(vector<int>& prices) {
+        /*SINCE The first day of the period is exempted from this rule ,HENCE INTIALIZE COUNT BY THE NO OF ELEMENTS PRESENT IN THE PRICE VECTOR...BECAUSE FIRST ELEMENT ITSELF WILL BE A SMOOTH DECENT PERIOD OF STOCK*/
+        
+        
+        long long count =prices.size();
+        int k=1;
+        while(k<prices.size()){
+            int i=0;
+            int j=k;
+            while(j<prices.size()){
+            if(check(prices,i,j)==true){
+                count++;
+            }
+            i++;
+            j++;
+        }
+            k++;
+        }
+        
+        return count;
+        
+    }
+};
