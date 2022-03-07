@@ -1,1 +1,22 @@
 problem:https://leetcode.com/contest/weekly-contest-283/problems/append-k-integers-with-minimal-sum/
+
+/*BRUTE FORCE WHICH CAME TO MY DURING CONTEST
+😐IT GAVE TLE
+*/
+long long minimalKSum(vector<int>& nums, int k) {
+    unordered_map<int,int>mp;
+       for(auto x:nums)
+           mp[x]++;
+        long long sum=0;
+        long long i=1;
+        while(k){
+            if(mp.find(i)==mp.end()){
+                sum+=i;
+                k--;
+            }
+            i++;
+                
+            
+        }
+        return sum;
+    }
