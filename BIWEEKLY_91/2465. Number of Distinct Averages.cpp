@@ -4,7 +4,7 @@ VIDEO:
 /*
 METHOD 1
 TC: O(N) + NLOG(N)
-SC: O(N/2)=O(N)
+SC: O(N/2) =~O(N)
 */
 
 class Solution {
